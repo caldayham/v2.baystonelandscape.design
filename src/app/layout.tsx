@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Quality Landscapes - Laurel',
   description: 'Transform your outdoor space with Laurel. Award-winning landscape design that elevates your property\'s beauty and value. Book your free consultation today.',
   icons: {
-    icon: '/imgs/Laurel-icon-leaf.png',
+    icon: '/Laurel-icon-leaf.png',
   },
 };
 

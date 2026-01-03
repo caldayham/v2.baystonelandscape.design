@@ -7,20 +7,19 @@ const sections = [
   { id: 'purpose', label: 'Purpose' },
   { id: 'process', label: 'Process' },
   { id: 'portfolio', label: 'Portfolio' },
-  { id: 'contact', label: 'Contact' },
 ];
 
 export default function FooterNav() {
   const [activeSection, setActiveSection] = useState('');
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [showConsultButton, setShowConsultButton] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
       const halfPage = window.innerHeight / 2;
 
-      // Check if scrolled past half page for contact button style
-      setIsScrolled(window.scrollY > halfPage);
+      // Show consultation button after scrolling half the page
+      setShowConsultButton(window.scrollY > halfPage);
 
       // Find active section
       const sectionElements = sections.map(s => ({
@@ -54,25 +53,29 @@ export default function FooterNav() {
       classes.push(styles.footerNavLinkActive);
     }
 
-    if (sectionId === 'contact' && isScrolled) {
-      classes.push(styles.buttonStyle);
-    }
-
     return classes.join(' ');
   };
 
   return (
     <nav className={styles.footerNav}>
-      {sections.map((section) => (
-        <a
-          key={section.id}
-          href={`#${section.id}`}
-          className={getLinkClass(section.id)}
-          data-section={section.id}
-        >
-          {section.label}
-        </a>
-      ))}
+      <div className={styles.centerLinks}>
+        {sections.map((section) => (
+          <a
+            key={section.id}
+            href={`#${section.id}`}
+            className={getLinkClass(section.id)}
+            data-section={section.id}
+          >
+            {section.label}
+          </a>
+        ))}
+      </div>
+      <a
+        href="#contact"
+        className={`${styles.consultButton} ${showConsultButton ? styles.consultButtonVisible : ''}`}
+      >
+        Book a Consultation
+      </a>
     </nav>
   );
 }

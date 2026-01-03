@@ -7,7 +7,7 @@ export default function Header() {
       <div className={styles.headerContainer}>
         <div className={styles.logo}>
           <Image
-            src="/imgs/Laurel-text-logo-leaf.png"
+            src="/Laurel-text-logo-leaf.png"
             alt="Laurel"
             width={200}
             height={60}

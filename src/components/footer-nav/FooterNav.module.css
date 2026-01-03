@@ -9,8 +9,14 @@
   box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
-  gap: var(--spacing-xl);
+  align-items: center;
   padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.centerLinks {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
 }
 
 .footerNavLink {
@@ -55,51 +61,74 @@
   transform: scaleX(1);
 }
 
-/* Contact tab button style when scrolled */
-.buttonStyle {
+/* Book a Consultation button - positioned independently on the right */
+.consultButton {
+  position: absolute;
+  right: var(--spacing-lg);
   background: var(--color-primary);
   color: var(--color-white);
   border-radius: var(--radius-full);
   padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
   transition: all var(--transition-base);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
 }
 
-.buttonStyle::after {
-  display: none;
+.consultButtonVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-.buttonStyle:hover {
+.consultButton:hover {
   background: var(--color-primary-light);
-  color: var(--color-white);
-}
-
-.buttonStyle.footerNavLinkActive {
-  background: var(--color-primary);
   color: var(--color-white);
 }
 
 /* Tablet */
 @media (max-width: 768px) {
   .footerNav {
-    gap: var(--spacing-md);
     padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .centerLinks {
+    gap: var(--spacing-md);
   }
 
   .footerNavLink {
     font-size: var(--font-size-sm);
     padding: var(--spacing-xs) var(--spacing-xs);
   }
+
+  .consultButton {
+    right: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
 }
 
 /* Mobile */
 @media (max-width: 480px) {
   .footerNav {
-    gap: var(--spacing-sm);
     padding: var(--spacing-sm);
+  }
+
+  .centerLinks {
+    gap: var(--spacing-sm);
   }
 
   .footerNavLink {
     font-size: var(--font-size-xs);
     padding: var(--spacing-xs) 0;
+  }
+
+  .consultButton {
+    right: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
 }
