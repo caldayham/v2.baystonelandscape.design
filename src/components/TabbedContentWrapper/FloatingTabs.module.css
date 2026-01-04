@@ -35,7 +35,7 @@
   border-top: 1px solid transparent;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
-  border-bottom: 1px solid transparent; /* Always transparent for "open" effect */
+  border-bottom: 1px solid var(--color-border); /* Inactive tabs have subtle bottom border */
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   transition: border-color var(--transition-fast), font-weight var(--transition-fast);
   z-index: 0;
@@ -53,22 +53,15 @@
   border-top-color: var(--color-text);
   border-left-color: var(--color-text);
   border-right-color: var(--color-text);
-  /* Bottom stays transparent - creates "open to content" effect */
+  border-bottom-color: transparent; /* Active tab has no bottom border - "open" to content */
   margin-bottom: -1px; /* Negative margin trick - extends tab to overlap container edge */
   z-index: 1; /* Render on top of neighbors */
 }
 
 /* Tablet */
 @media (max-width: 768px) {
-  .tabsContainer {
-    bottom: 48px; /* Move tabs up to make room for consultation button below */
-    width: 80%; /* 80% of screen width */
-    left: 10%;
-    transform: none;
-  }
-
   .tab {
-    width: 33.333%; /* Each tab takes 1/3 of container */
+    width: 90px;
     font-size: var(--font-size-sm);
     padding: 0.5rem 0;
   }
@@ -76,12 +69,8 @@
 
 /* Mobile */
 @media (max-width: 480px) {
-  .tabsContainer {
-    width: 85%;
-    left: 7.5%;
-  }
-
   .tab {
+    width: 80px;
     font-size: var(--font-size-xs);
     padding: 0.5rem 0;
   }

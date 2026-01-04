@@ -1,8 +1,8 @@
 import styles from './Process.module.css';
 
-export default function Process() {
+export default function ProcessSection() {
   return (
-    <section className={styles.process} id="process">
+    <section className={styles.process}>
       <div className={styles.processContainer}>
         <h2 className="section-title">Our Process</h2>
 

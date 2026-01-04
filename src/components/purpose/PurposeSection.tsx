@@ -1,8 +1,8 @@
 import styles from './Purpose.module.css';
 
-export default function Purpose() {
+export default function PurposeSection() {
   return (
-    <section className={styles.about} id="purpose">
+    <section className={styles.about}>
       <div className={styles.aboutContainer}>
         <h2 className="section-title">Our Purpose</h2>
         <p className={styles.aboutText}>

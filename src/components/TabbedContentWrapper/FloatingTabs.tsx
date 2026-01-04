@@ -5,8 +5,8 @@ import styles from './FloatingTabs.module.css';
 
 const tabs = [
   { id: 'purpose', label: 'Purpose' },
-  { id: 'process', label: 'Process' },
   { id: 'portfolio', label: 'Portfolio' },
+  { id: 'contact', label: 'Inquire' },
 ];
 
 export default function FloatingTabs() {

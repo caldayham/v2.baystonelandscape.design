@@ -68,14 +68,3 @@
   pointer-events: none;
   z-index: 100;
 }
-
-/* Tablet and smaller - move frame up to make room for consultation button below tabs */
-@media (max-width: 768px) {
-  .frameMask::after {
-    height: 48px; /* Taller bottom mask */
-  }
-
-  .frameBorder {
-    bottom: 48px; /* Move frame up */
-  }
-}
