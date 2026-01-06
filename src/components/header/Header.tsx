@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import styles from './Header.module.css';
-import ConsultationButton from '@/components/consultation_button/ConsultationButton';
+import CTAButton from '@/components/cta_button/CTAButton';
 
 const navLinks = [
   { id: 'purpose', label: 'Purpose' },
@@ -10,7 +10,11 @@ const navLinks = [
   { id: 'portfolio', label: 'Portfolio' },
 ];
 
-export default function Header() {
+interface HeaderProps {
+  hideCtaButton?: boolean;
+}
+
+export default function Header({ hideCtaButton = false }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showCta, setShowCta] = useState(false);
 
@@ -48,7 +52,7 @@ export default function Header() {
         </nav>
       </header>
 
-      <ConsultationButton onVisibilityChange={handleCtaVisibilityChange} />
+      <CTAButton onVisibilityChange={handleCtaVisibilityChange} forceHide={hideCtaButton} />
 
       {/* Mobile hamburger button - fixed at bottom right */}
       <button
